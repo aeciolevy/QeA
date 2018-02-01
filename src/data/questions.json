@@ -1,2 +1,8 @@
-[{"question": "How to add a question?",
-  "answer": "Easy: just gill the form below and submit it!"}]
+{ "byId": {
+    "1": {
+      "question": {"How to add a question?"},
+      "answer": {"Easy: just gill the form below and submit it!"}
+    }
+  },
+  "allIds": [1]
+}
