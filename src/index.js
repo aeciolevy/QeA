@@ -6,7 +6,10 @@ import { createStore, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 
 import registerServiceWorker from './registerServiceWorker';
+// CSS
 import './index.css';
+import 'bootstrap/dist/css/bootstrap.css';
+// Components
 import App from './App';
 import reducers from './reducers';
 
