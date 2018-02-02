@@ -16,7 +16,7 @@ class AllQuestions extends Component {
   }
 
   render() {
-    const { data, handleSeeAll } = this.props;
+    const { handleSeeAll } = this.props;
     let dataFilter = this.props.data.filter(el =>
       el.question.match(new RegExp(this.state.filter, 'i')));
     const handleSee = () => handleSeeAll();
