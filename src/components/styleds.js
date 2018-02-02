@@ -5,6 +5,12 @@ import styled from 'styled-components';
 
 const boxShadow = '0 0.71rem 0.4285rem -0.4285rem #777';
 
+export const Header = styled.header`
+  background-color: RGB(47,62,78);
+  color: white;
+  font-size: 1.6rem;
+`
+
 export const QuestionBox = styled.div`
   background-color: rgba(205, 205, 205, 0.33);
   border-radius: 0.15rem;
@@ -13,10 +19,31 @@ export const QuestionBox = styled.div`
   -moz-box-shadow: ${props => props.highlight ? boxShadow : 'none' };
   margin: 1rem auto;
   width: 60vw;
-  text-align: center;
+  text-align: left;
+  @media (max-width: 375px) {
+    width: 80vw;
+  }
 `;
 
 export const Title = styled.h5`
+  background-color: #80808024;
+  font-family: 'Lato', sans-serif;
+  font-weight: 600;
   font-size: 1.12rem;
-  padding: 0.5rem 0.3rem 0.5rem 0.3rem;
-`
+  padding: 0.5rem 0.3rem 0.5rem 1rem;
+  margin-top: 1rem;
+`;
+
+export const FormBox = styled.div`
+  margin: auto;
+  width: 60vw;
+  @media (max-width: 375px) {
+    width: 80vw;
+  }
+`;
+
+export const ButtonBox = styled.div`
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+`;

@@ -3,17 +3,37 @@ import React, { Component } from 'react';
 import './App.css';
 import db from './data/questions.json';
 import Questions from './components/questions';
+import Forms from './components/forms';
+import { Header, Title } from './components/styleds';
+import { filterArray } from './utils/help-ui';
+import logo from './images/logo.png';
+import Buttons from './components/buttons';
 
 class App extends Component {
-  render () {
+  constructor(props){
+    super(props);
+    this.state = {}
+  }
+  componentWillMount () {
+    this.setState({width: window.innerWidth + 'px'});
+  }
 
+  render () {
+    const filtered = filterArray(db.byId, this.state.width);
     return (
       <div className="App">
-        {db.byId.map((el, index) =>
+        <Header>
+          <img alt="logo" src={logo} />
+        </Header>
+        <Title> Created Questions </Title>
+        {filtered.map((el, index) =>
           <Questions
             key={index}
             data={el}
           />)}
+        <Buttons />
+        <Title> Create a new question </Title>
+        <Forms />
       </div>
     );
   }

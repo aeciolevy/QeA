@@ -5,9 +5,8 @@ import React from 'react';
 import { Collapse } from 'reactstrap';
 
 const style = {
-  fontSize: '0.65rem',
-  textAlign: 'left',
-  padding: '0 1.5rem 0 1.5rem'
+  fontSize: '0.7rem',
+  paddingLeft: '1rem'
 };
 
 const Textlong = (props) => {
