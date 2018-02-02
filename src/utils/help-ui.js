@@ -2,8 +2,12 @@
   arrow-body-style: 0, react/prop-types: 0, import/prefer-default-export: 0
 */
 export function filterArray (fullArray, windowWidth) {
-  if (windowWidth === '375px') {
-    return fullArray.filter(el => el.id < 3);
+  if (fullArray) {
+    if (windowWidth === '375px') {
+      return fullArray.filter(el => el.id < 3);
+    }
+    return fullArray.filter(el => el.id < 5);
+  } else {
+    return [];
   }
-  return fullArray.filter(el => el.id < 5);
 }

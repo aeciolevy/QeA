@@ -2,6 +2,7 @@
   arrow-body-style: 0, react/prop-types: 0
 */
 import React, { Component } from 'react';
+import { Alert } from 'reactstrap';
 import Headline from './head-line';
 import Textlong from './text-long';
 import { QuestionBox } from './styleds'

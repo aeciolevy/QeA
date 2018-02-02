@@ -9,10 +9,11 @@ import { FormBox } from './styleds';
 const required = value => (value ? undefined : 'Required');
 
 const Forms = (props) => {
-  const { handleSubmit, reset, pristine, submitting } = props;
+  const { handleSubmit, reset, submitting } = props;
   const btnStyle = { float: 'right' }
   const submit = (data) => {
     props.submit(data);
+    setTimeout(() => reset(), 500)
   }
   return (
     <FormBox>
