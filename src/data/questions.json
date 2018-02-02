@@ -7,13 +7,13 @@
     },
     {
       "id": 2,
-      "question": "How can I upload my doc?",
-      "answer": "First of all you should sign up and the start to upload"
+      "question": "Can I move to Amsterdam?",
+      "answer": "It seems to be a good idea."
     },
     {
       "id": 3,
-      "question": "How to add a question?",
-      "answer": "Easy: just fill the form below and submit it!"
+      "question": "Shall I travel this weekend?",
+      "answer": "Why not? Go for it!!!"
     }
   ]
 }

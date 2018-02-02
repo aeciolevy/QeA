@@ -7,9 +7,13 @@ import { ButtonBox } from './styleds';
 
 const Buttons = (props) => {
   const handleClick = () => props.handleRemove();
+  const handleSeeAll = () => props.handleSeeAll();
+  const handleSorting = () => props.handleSort();
   return (
     <ButtonBox>
-      <button className="btn btn-outline-dark btn-sm">
+      <button
+        onClick={() => handleSorting()}
+        className="btn btn-outline-dark btn-sm">
         Sort
       </button>
       <button
@@ -18,7 +22,10 @@ const Buttons = (props) => {
       >
          Remove All
        </button>
-      <button className="btn btn-outline-secondary btn-sm">
+      <button
+        className="btn btn-outline-secondary btn-sm"
+        onClick={() => handleSeeAll()}
+      >
         See all
       </button>
     </ButtonBox>

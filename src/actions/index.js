@@ -3,7 +3,7 @@
   func-names: 0
 */
 import * as type from './types';
-import { flashMessage, flashErrorMessage } from 'redux-flash';
+import { flashMessage } from 'redux-flash';
 import db from '../data/questions.json';
 
 export function addQuestion (data) {
@@ -23,6 +23,11 @@ export function fetchQuestions () {
 export function removeQuestions () {
   return function (dispatch) {
     dispatch({ type: type.REMOVEQUESTIONS });
-  }
+  };
+}
 
+export function sortQuestion () {
+  return function (dispatch) {
+    dispatch({type: type.SORTQUESTIONS})
+  }
 }

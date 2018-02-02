@@ -2,59 +2,56 @@
 import React, { Component } from 'react';
 import { connect } from  'react-redux';
 import { getLatestMessage } from 'redux-flash';
-import { Alert } from 'reactstrap';
 import './App.css';
 import * as actions from  './actions/index';
-import Questions from './components/questions';
-import Forms from './components/forms';
-import { Header, Title, AlertStyled } from './components/styleds';
-import { filterArray } from './utils/help-ui';
+import Main from './components/main-view';
+import AllQuestions from './components/all-questions';
+import Tooltip from './components/tooltip';
+import { Header, Title } from './components/styleds';
+import { FilterArray, SortArray } from './utils/help';
 import logo from './images/logo.png';
-import Buttons from './components/buttons';
 
 class App extends Component {
   constructor(props){
     super(props);
-    this.state = {}
+    this.state = { main: true, hover: true}
   }
   componentWillMount () {
     this.setState({width: window.innerWidth + 'px'});
     this.props.fetchQuestions();
   }
+  handleHover = () => this.setState({hover: !this.state.hover});
   handleSubmit = (data) => {
     data = { ...data, id: this.props.db.byId.length + 1};
     this.props.addQuestion(data);
   }
-  handleRemove = () => {
-    this.props.removeQuestions();
-  }
+  handleRemove = () => this.props.removeQuestions();
+  handleSeeAll = () => this.setState({main: !this.state.main })
+  handleSort = () => this.props.sortQuestion();
   render () {
-    const filtered = filterArray(this.props.db.byId, this.state.width);
-    console.log(filtered)
+    const filtered = FilterArray(this.props.db.byId, this.state.width);
     const flash = this.props.flash;
     return (
       <div className="App">
         <Header>
           <img alt="logo" src={logo} />
         </Header>
-        <Title> Created Questions </Title>
-        {filtered.length > 0 ? filtered.map((el, index) =>
-          <Questions
-            key={index}
-            data={el}
-          />) :
-          <AlertStyled color='danger'> No questions yet </AlertStyled>
+        <Title id="firstTitle"> Created Questions </Title>
+        <Tooltip target="firstTitle"> </Tooltip>
+        {this.state.main ?
+          <Main
+            filtered={filtered}
+            handleRemove={this.handleRemove}
+            flash={flash}
+            onSubmit={this.handleSubmit}
+            handleSeeAll={this.handleSeeAll}
+            handleSort={this.handleSort}
+          /> :
+          <AllQuestions
+            data={this.props.db.byId}
+            handleSeeAll={this.handleSeeAll}
+          />
         }
-        <Buttons handleRemove={this.handleRemove}/>
-        <Title> Create a new question </Title>
-        {flash ?
-          <Alert color={flash.isError ? 'danger' : 'success'}
-            style={{ margin: '1rem auto', width: '60vw' }}
-            >
-              {this.props.flash.message}
-            </Alert> : null
-          }
-        <Forms onSubmit={this.handleSubmit}/>
       </div>
     );
   }

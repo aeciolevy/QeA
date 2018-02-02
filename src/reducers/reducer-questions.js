@@ -1,4 +1,5 @@
 import * as types from '../actions/types';
+import { SortArray } from '../utils/help';
 
 export default function (state = {}, action) {
   const { type, payload } = action;
@@ -9,6 +10,8 @@ export default function (state = {}, action) {
       return { ...state, ...payload };
     case types.REMOVEQUESTIONS:
       return { ...state, byId: [] };
+    case types.SORTQUESTIONS:
+      return { ...state, byId: state.byId.sort(SortArray) };
     default:
       return state;
   }
