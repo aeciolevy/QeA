@@ -3,16 +3,17 @@
 */
 import React from 'react';
 import { FormGroup, FormFeedback, Input, Label } from 'reactstrap';
-import { FormStyled } from './styleds';
 
-const FieldForm = ({placeholder, label, type, input, meta }) => {
+const FieldForm = ({ placeholder, label, type, input, meta }) => {
   const formStyle = {
     textAlign: 'left'
-  }
+  };
+
   return (
     <FormGroup style={formStyle}>
       <Label>{label}</Label>
-      <Input type={type} placeholder={placeholder} {...input} />
+      <Input type={type} placeholder={placeholder} {...input}
+        valid={meta.touched ? !meta.invalid : true } />
       <FormFeedback> {meta.touched ? meta.error : ''} </FormFeedback>
     </FormGroup>
   );

@@ -18,6 +18,10 @@ class App extends Component {
     this.setState({width: window.innerWidth + 'px'});
   }
 
+  handleSubmit = () => {
+    console.log("submitted");
+  }
+
   render () {
     const filtered = filterArray(db.byId, this.state.width);
     return (
@@ -33,7 +37,7 @@ class App extends Component {
           />)}
         <Buttons />
         <Title> Create a new question </Title>
-        <Forms />
+        <Forms onSubmit={this.handleSubmit}/>
       </div>
     );
   }

@@ -6,14 +6,17 @@ import { Field, reduxForm } from 'redux-form';
 import FieldForm from './field-form';
 import { FormBox } from './styleds';
 
-const required = value =>  (value ? undefined : 'Required');
+const required = value => (value ? undefined : 'Required');
 
 const Forms = (props) => {
-  const { handleSubmit, reset, submitting } = props;
-  const btnStyle = { float: 'right'}
+  const { handleSubmit, reset, pristine, submitting } = props;
+  const btnStyle = { float: 'right' }
+  const submit = (data) => {
+    props.submit(data);
+  }
   return (
     <FormBox>
-      <form>
+      <form onSubmit={handleSubmit(submit)}>
         <Field
           type="text"
           name="question"
@@ -30,8 +33,12 @@ const Forms = (props) => {
           validate={required}
           component={FieldForm}
         />
-        <button type="submit" className="btn btn-outline-success"
-          style={btnStyle}>
+        <button
+          type="submit"
+          className="btn btn-outline-success"
+          style={btnStyle}
+          disabled={submitting}
+        >
           Create Question
         </button>
       </form>
@@ -39,4 +46,4 @@ const Forms = (props) => {
   );
 };
 
-export default reduxForm({ form: 'questionForm' })(Forms);;
+export default reduxForm({ form: 'questionForm' })(Forms);
