@@ -7,6 +7,12 @@ import { Alert } from 'reactstrap';
 const boxShadow = '0 0.71rem 0.4285rem -0.4285rem #777';
 const brandColor = 'RGB(47,62,78)';
 
+export const Input = styled.input`
+  width: 40vw;
+  display: inline;
+  margin-left: 1.5rem;
+`;
+
 export const AlertStyled = styled(Alert)`
   width: 60vw;
   margin: 1rem auto;
