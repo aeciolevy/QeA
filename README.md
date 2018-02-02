@@ -9,7 +9,7 @@ npm install -g create-react-app
 - Now clone the repository and:
 ```
 npm start
-
+```
 ## Stacks and Libraries Used
 - React
 - Redux
