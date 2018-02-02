@@ -7,6 +7,7 @@ import Questions from './questions';
 import { Title, AlertStyled } from './styleds';
 import Forms from './forms';
 import Buttons from './buttons';
+import Tooltip from './tooltip';
 
 const Main = (props) => {
   const { filtered, flash, handleRemove, onSubmit} = props;
@@ -22,7 +23,10 @@ const Main = (props) => {
         handleSeeAll={handleSeeAll}
         handleSort={handleSort}
       />
-      <Title> Create a new question </Title>
+      <Title id="newQuestion"> Create a new question </Title>
+      <Tooltip target="newQuestion">
+        Here you can create new questions and their answers
+      </Tooltip>
       {flash ?
         <AlertStyled color={flash.isError ? 'danger' : 'success'}>
           {flash.message}

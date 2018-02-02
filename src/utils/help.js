@@ -25,18 +25,30 @@ export function SortArray (a, b) {
   return 0;
 }
 
+
 export class Tip {
-  constructor(target){
+  constructor(target, text){
     this.target = target;
-    this.AddTargetEvents();
+    this.text = text;
   }
 
-  AddTargetEvents () {
+  ToolTip () {
     const { target } = this;
     if (target) {
       target.addEventListener('mouseover', event => {
-        console.log('mouseOver');
-      })
+        let el = document.createElement('div');
+        let rect = target.getBoundingClientRect();
+        el.setAttribute('id', 'popover');
+        el.innerHTML = this.text;
+        el.style.position = 'absolute';
+        el.style.top = `${rect.y}px`;
+        el.style.left = `${(rect.right/2)+90}px`;
+        event.target.appendChild(el);
+      });
+      target.addEventListener('mouseout', event => {
+        let el = document.querySelector(`#popover`);
+        event.target.removeChild(el);
+      } )
     }
   }
 }

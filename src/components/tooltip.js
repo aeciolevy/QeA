@@ -5,12 +5,13 @@ import React from 'react';
 import { Tip } from '../utils/help';
 
 const Tooltip = (props) => {
-  const { target } = props;
+  const { target, children } = props;
   const element =  document.querySelector(`#${target}`);
-  const tip = new Tip(element);
+  const tip = new Tip(element, children);
+  tip.ToolTip();
 
   return (
-    <div> Hey </div>
+    <div>  </div>
   );
 };
 

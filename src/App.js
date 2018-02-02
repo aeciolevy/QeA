@@ -8,7 +8,7 @@ import Main from './components/main-view';
 import AllQuestions from './components/all-questions';
 import Tooltip from './components/tooltip';
 import { Header, Title } from './components/styleds';
-import { FilterArray, SortArray } from './utils/help';
+import { FilterArray } from './utils/help';
 import logo from './images/logo.png';
 
 class App extends Component {
@@ -37,7 +37,9 @@ class App extends Component {
           <img alt="logo" src={logo} />
         </Header>
         <Title id="firstTitle"> Created Questions </Title>
-        <Tooltip target="firstTitle"> </Tooltip>
+        <Tooltip target="firstTitle">
+          Here you can find the created questions and their answers
+        </Tooltip>
         {this.state.main ?
           <Main
             filtered={filtered}
