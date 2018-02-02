@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import { connect } from  'react-redux';
 import { getLatestMessage } from 'redux-flash';
-import './App.css';
 import * as actions from  './actions/index';
 import Main from './components/main-view';
 import AllQuestions from './components/all-questions';
@@ -20,7 +19,6 @@ class App extends Component {
     this.setState({width: window.innerWidth + 'px'});
     this.props.fetchQuestions();
   }
-  handleHover = () => this.setState({hover: !this.state.hover});
   handleSubmit = (data) => {
     data = { ...data, id: this.props.db.byId.length + 1};
     this.props.addQuestion(data);
