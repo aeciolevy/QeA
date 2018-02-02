@@ -6,6 +6,8 @@ import { Alert } from 'reactstrap';
 
 const boxShadow = '0 0.71rem 0.4285rem -0.4285rem #777';
 const brandColor = 'RGB(47,62,78)';
+const widthSmall = '80vw';
+const widthLarge = '60vw';
 
 export const Input = styled.input`
   width: 40vw;
@@ -14,10 +16,10 @@ export const Input = styled.input`
 `;
 
 export const AlertStyled = styled(Alert)`
-  width: 60vw;
+  width: ${widthLarge};
   margin: 1rem auto;
   @media (max-width: 375px) {
-    width: 80vw;
+    width: ${widthSmall};
   }
 `;
 
@@ -34,10 +36,10 @@ export const QuestionBox = styled.div`
   -webkit-box-shadow: ${props => props.highlight ? boxShadow : 'none' };
   -moz-box-shadow: ${props => props.highlight ? boxShadow : 'none' };
   margin: 1rem auto;
-  width: 60vw;
+  width: ${widthLarge};
   text-align: left;
   @media (max-width: 375px) {
-    width: 80vw;
+    width: ${widthSmall};
   }
 `;
 
@@ -52,9 +54,9 @@ export const Title = styled.h5`
 
 export const FormBox = styled.div`
   margin: auto;
-  width: 60vw;
+  width: ${widthLarge};
   @media (max-width: 375px) {
-    width: 80vw;
+    width: ${widthSmall};
   }
 `;
 
