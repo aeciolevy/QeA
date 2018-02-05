@@ -19,3 +19,11 @@ npm start
 - Redux Thunk (Middleware)
 - [Styled-Components](https://www.styled-components.com/)
 - Bootstrap
+
+## Added live database with [WebTask](https://webtask.io/) what make serverless endpoints.
+  Articles about serverless:
+  - [What is serverless?](https://medium.com/@PaulDJohnston/what-is-serverless-architecture-43b9ea4babca)
+  - [How Webtask works?](https://webtask.io/docs/how)
+
+TODO:
+- Add Loading to first page
