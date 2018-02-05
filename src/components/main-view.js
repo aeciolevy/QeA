@@ -3,6 +3,7 @@
   func-names: 0
 */
 import React from 'react';
+// Components
 import Questions from './questions';
 import { Title, AlertStyled } from './styleds';
 import Forms from './forms';
@@ -10,7 +11,7 @@ import Buttons from './buttons';
 import Tooltip from './tooltip';
 
 const Main = (props) => {
-  const { filtered, flash, handleRemove, onSubmit} = props;
+  const { filtered, flash, handleRemove, onSubmit } = props;
   const { handleSeeAll, handleSort } = props;
   return (
     <div>

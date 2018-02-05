@@ -1,3 +1,4 @@
+// Reducer to questions
 import * as types from '../actions/types';
 import { SortArray } from '../utils/help';
 

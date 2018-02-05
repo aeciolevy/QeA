@@ -1,13 +1,17 @@
 /* eslint react/jsx-filename-extension: 0, react/prefer-stateless-function: 0 */
 import React, { Component } from 'react';
 import { connect } from  'react-redux';
+// Function to show flash message
 import { getLatestMessage } from 'redux-flash';
+// Redux Actions
 import * as actions from  './actions/index';
+// Components
 import Main from './components/main-view';
 import AllQuestions from './components/all-questions';
 import Tooltip from './components/tooltip';
 import { Header, Title } from './components/styleds';
 import { FilterArray } from './utils/help';
+// Image
 import logo from './images/logo.png';
 
 class App extends Component {
@@ -19,12 +23,15 @@ class App extends Component {
     this.setState({width: window.innerWidth + 'px'});
     this.props.fetchQuestions();
   }
+  // Add a new question
   handleSubmit = (data) => {
     data = { ...data, id: this.props.db.byId.length + 1};
     this.props.addQuestion(data);
   }
+  // Remove questions
   handleRemove = () => this.props.removeQuestions();
   handleSeeAll = () => this.setState({main: !this.state.main })
+  // Sort questions
   handleSort = () => this.props.sortQuestion();
   render () {
     const filtered = FilterArray(this.props.db.byId, this.state.width);

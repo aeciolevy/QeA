@@ -2,6 +2,7 @@
   arrow-body-style: 0, react/prop-types: 0, import/prefer-default-export: 0
 */
 import React, { Component } from 'react';
+// Components
 import Headline from './head-line';
 import Textlong from './text-long';
 import { QuestionBox } from './styleds'
@@ -11,11 +12,10 @@ class Questions extends Component {
     super(props);
     this.state = {};
   }
-
+  // To trigger the state isOpen to show the collapse box
   handleClick = () => {
     this.setState({isOpen: !this.state.isOpen})
   }
-
   render () {
     const { question, answer } = this.props.data;
     return (

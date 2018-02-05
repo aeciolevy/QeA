@@ -2,8 +2,9 @@
   arrow-body-style: 0, react/prop-types: 0, import/prefer-default-export: 0
 */
 import React from 'react';
+//Components
 import { FormGroup, FormFeedback, Input, Label } from 'reactstrap';
-
+// Field form component to be used with Redux-form
 const FieldForm = ({ placeholder, label, type, input, meta }) => {
   const formStyle = {
     textAlign: 'left'

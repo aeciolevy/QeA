@@ -3,6 +3,7 @@
   func-names: 0
 */
 import React, { Component } from 'react';
+// Components
 import Questions from './questions';
 import { AlertStyled, Input } from './styleds';
 
@@ -11,20 +12,23 @@ class AllQuestions extends Component {
     super(props);
     this.state = { filter: ''}
   }
+  // Update filter state
   addFilter = (e) => {
     this.setState({filter: e.target.value});
   }
+  // Method to call a props to change the state
+  // to show the main component.
+  handleSee = () => this.props.handleSeeAll();
 
   render() {
-    const { handleSeeAll } = this.props;
+    // filter questions
     let dataFilter = this.props.data.filter(el =>
       el.question.match(new RegExp(this.state.filter, 'i')));
-    const handleSee = () => handleSeeAll();
     return (
       <div>
         <div>
           <button
-            onClick={() => handleSee()}
+            onClick={() => this.handleSee()}
             className="btn btn-primary"
           >
             Back

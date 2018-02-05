@@ -2,6 +2,7 @@
   arrow-body-style: 0, react/prop-types: 0
 */
 import React from 'react';
+// Component
 import { Title } from './styleds';
 
 const Headline = ({ handleClick, children }) => {

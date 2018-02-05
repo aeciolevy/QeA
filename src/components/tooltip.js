@@ -2,6 +2,7 @@
 arrow-body-style: 0 */
 
 import React from 'react';
+// Class to help built the Tooltip
 import { Tip } from '../utils/help';
 
 const Tooltip = (props) => {
